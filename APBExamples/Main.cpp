@@ -1,9 +1,9 @@
-#include "ToConsole.h"
+#include "Interval.h"
 
 int main()
 {
-	ToConsole speaker;
-	
-	speaker.SayHello();
+	Interval interval;
+
+	interval.PromptCalcInterval();
 	return 0;
 }

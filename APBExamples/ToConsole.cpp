@@ -2,5 +2,10 @@
 
 void ToConsole::SayHello()
 {
-	std::cout << "Hello Earthlings!\n\n";
+	cout << "Hello Earthlings!\n\n";
+}
+
+void ToConsole::Print(string message)
+{
+	cout << message;
 }
