@@ -1,34 +1,13 @@
 #include "Interval.h"
 
-void Interval::PromptCalcInterval()
+int Interval::CalcInterval(int note1, int note2)
 {
-    ToConsole speaker;
-    interval = 0;
- 
-    speaker.SayHello();
-    printf("Please enter two natural notes. \nFirst Node: ");
-
-    if (scanf_s("%c%c", &note1, 1, &temp, 1) <= 0)
-    {
-        speaker.Print("Error: Bad Scan");
-        return;
-    }
-
-    printf("Second Note: ");
-
-    if (scanf_s("%c", &note2, 1) <= 0)
-    {
-        speaker.Print("Error: Bad Scan");
-        return;
-    }
-
-    //Calculate the interval
     interval = NameToPc(note2) - NameToPc(note1);
 
     if (interval > 20 || interval < -11)
     {
         printf("Either %c or %c are invalid notes.\n", note1, note2);
-        return;
+        return -1;
     }
 
     if (interval < 0)
@@ -41,6 +20,8 @@ void Interval::PromptCalcInterval()
     }
 
     printf("There are either %d semitones up or %d semitones down.\n", interval, interval ? 12 - interval : 0);
+    
+    return interval;
 }
 
 int Interval::NameToPc(char name)

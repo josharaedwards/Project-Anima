@@ -139,11 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Dodecaphonic.cpp" />
     <ClCompile Include="Interval.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ToConsole.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Dodecaphonic.h" />
     <ClInclude Include="Interval.h" />
     <ClInclude Include="ToConsole.h" />
   </ItemGroup>

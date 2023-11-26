@@ -1,5 +1,6 @@
 #pragma once
-#include "ToConsole.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 class Interval
 {
@@ -9,6 +10,6 @@ class Interval
 	int NameToPc(char name);
 
 public:
-	void PromptCalcInterval();
+	int CalcInterval(int note1, int note2);
 };
 

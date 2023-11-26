@@ -1,10 +1,14 @@
-#include "Interval.h"
+#include "ToConsole.h"
 
-int main()
+int main(int argc, char** argv)
 {
-	Interval interval;
+	ToConsole speaker;
 
 	//Calculates the interval between natural notes
-	interval.PromptCalcInterval();
+	speaker.PromptInterval();
+
+	//Calculates the transform operation of a dodecaphonic based on console arguments
+	speaker.PromptDodecaphonic(argc, argv);
+
 	return 0;
 }
