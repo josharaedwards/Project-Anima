@@ -11,6 +11,10 @@
         </a-cursor>
       </a-camera>
 
+      <a-sky
+        src="https://raw.githubusercontent.com/josharaedwards/Project-Anima/42b995f0c959db1ce651d383349005225226df89/WebDev/Images/sky2.jpg">
+      </a-sky>
+
       <a-plane 
         color="#5c5953"
         position="0 0 -4" 
@@ -19,9 +23,20 @@
         height="100">
       </a-plane>
 
-      <a-sky
-        src="https://raw.githubusercontent.com/josharaedwards/Project-Anima/0c72988cece2c9a3a14e207441a26eaa9c0afdf8/WebDev/Images/sky.jpg">
-      </a-sky>
+      <a-entity
+        id="moon"
+        geometry="primitive:sphere"
+        material="color:white; emissive:#7980fc; emissiveIntensity:3"
+        light="type:ambient; color:#7980fc"
+        position="3 10 -10">
+      </a-entity>
+
+      <a-entity
+        id="jaera"
+        geometry="primitive:box"
+        material="color:yellow"
+        position="0 1 -4">
+      </a-entity>
 
     </a-scene>
   </body>
