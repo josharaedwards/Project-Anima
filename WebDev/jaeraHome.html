@@ -4,15 +4,26 @@
     <script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script> 
   </head>
   <body>
-    <a-scene embedded>
+    <a-scene>
 
       <a-assets>
+        <a-asset-item
+          id="car"
+          src="https://raw.githubusercontent.com/josharaedwards/Project-Anima/b8c4458c12033884799d26aaa85dd0b1784e5a14/WebDev/Models/car.glb">
+        </a-asset-item>
       </a-assets>
 
-      <a-camera>
-        <a-cursor>
-        </a-cursor>
-      </a-camera>
+      <a-entity
+        camera
+        look-controls
+        position="0 2 0">
+        <a-entity
+          cursor
+          geometry="primitive:triangle; vertexA:0 0.01 0; vertexB: -0.1 -0.1 0; vertexC:0.1 -0.1 0"
+          material="color:yellow; shader:flat"
+          position="0 0 -2">
+        </a-entity>
+      </a-entity>
 
       <a-sky
         src="https://raw.githubusercontent.com/josharaedwards/Project-Anima/42b995f0c959db1ce651d383349005225226df89/WebDev/Images/sky2.jpg">
@@ -29,16 +40,14 @@
       <a-entity
         id="moon"
         geometry="primitive:sphere"
-        material="color:white; emissive:#7980fc; emissiveIntensity:3"
-        light="type:ambient; color:#7980fc"
+        material="color:white; emissive:#7980fc; emissiveIntensity:2"
+        light="type:point; color:#7980fc; castShadow:true; shadowBias:-0.1"
         position="3 10 -10">
       </a-entity>
 
       <a-entity
-        id="jaera"
-        geometry="primitive:box"
-        material="color:yellow"
-        position="0 1 -4">
+        gltf-model="#car"
+        position="0 0 -7">
       </a-entity>
 
     </a-scene>
