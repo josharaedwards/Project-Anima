@@ -1,7 +1,7 @@
 <html>
   <head>
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script> 
+    <script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script>
   </head>
   <body>
     <a-scene>
@@ -11,30 +11,38 @@
           id="car"
           src="https://raw.githubusercontent.com/josharaedwards/Project-Anima/b8c4458c12033884799d26aaa85dd0b1784e5a14/WebDev/Models/car.glb">
         </a-asset-item>
+        <a-asset-item
+          id="streetlight"
+          src="https://raw.githubusercontent.com/josharaedwards/Project-Anima/e43d84128f042adfe5f63e25bbd8d66b63c8a4aa/WebDev/Models/streetLight1.glb">
+        </a-asset-item>
       </a-assets>
 
       <a-entity
+        id="pc"
         camera
         look-controls
         position="0 2 0">
         <a-entity
           cursor
-          geometry="primitive:triangle; vertexA:0 0.01 0; vertexB: -0.1 -0.1 0; vertexC:0.1 -0.1 0"
-          material="color:yellow; shader:flat"
+          geometry="primitive:triangle; vertexA:0 -0.040 0; vertexB: -0.050 -0.1 0; vertexC:0.050 -0.1 0"
+          material="color:#83f9fb; shader:flat; wireframe:true"
           position="0 0 -2">
         </a-entity>
       </a-entity>
 
       <a-sky
+        id="sky"
         src="https://raw.githubusercontent.com/josharaedwards/Project-Anima/42b995f0c959db1ce651d383349005225226df89/WebDev/Images/sky2.jpg">
       </a-sky>
 
-      <a-plane 
+      <a-plane
+        id="ground" 
         color="#5c5953"
         position="0 0 -4" 
         rotation="-90 0 0" 
         width="100" 
-        height="100">
+        height="100"
+        roughness="1">
       </a-plane>
 
       <a-entity
@@ -46,8 +54,81 @@
       </a-entity>
 
       <a-entity
+        id="car"
         gltf-model="#car"
         position="0 0 -7">
+        <a-entity 
+          id="wheel1"
+          geometry="primitive: circle; radius: 0.37; segments: 16" 
+          position="-0.88407 0.39659 0.98941" 
+          material="emissive: #f148f4; emissiveIntensity: 1.36; wireframe: true; wireframeLinewidth: 1"  
+          light="color: #d725ef; distance: 1.6; type: point"
+          animation__wheelSpin="property:rotation; dir:alternate; dur:800; easing:easeInSine; loop:true; to: 0 0 270">
+        </a-entity>
+        <a-entity 
+          id="wheel2" 
+          geometry="primitive: circle; radius: 0.37; segments: 16"
+          position="1.05146 0.39659 0.98941" 
+          material="emissive: #f148f4; emissiveIntensity: 1.36; wireframe: true; wireframeLinewidth: 1" 
+          light="color: #d725ef; distance: 1.6; type: point"
+          animation__wheelSpin="property:rotation; dir:alternate; dur:800; easing:easeInSine; loop:true; to: 0 0 270">
+        </a-entity>
+      </a-entity>
+
+      <a-entity
+        id="streetlight1"
+        gltf-model="#streetlight"
+        position="-5 0 -13"
+        rotation="0 90 0">
+        <a-box
+          material="emissive: #edf104" 
+          position="0 3.4 1.32" 
+          scale="0.2 0.45 0.2"
+          rotation="-90 0 0"
+          light="angle: 40; color: #edf104; distance: 100; intensity: 0.7; penumbra: 0.2; type: spot; castShadow: true">
+        </a-box>
+      </a-entity>
+
+      <a-entity
+        id="streetlight2"
+        gltf-model="#streetlight"
+        position="-5 0 -4"
+        rotation="0 90 0">
+        <a-box
+          material="emissive: #edf104" 
+          position="0 3.4 1.32" 
+          scale="0.2 0.45 0.2"
+          rotation="-90 0 0"
+          light="angle: 40; color: #edf104; distance: 100; intensity: 0.7; penumbra: 0.2; type: spot; castShadow: true">
+        </a-box>
+      </a-entity>
+
+      <a-entity
+        id="streetlight3"
+        gltf-model="#streetlight"
+        position="5 0 -13"
+        rotation="0 -90 0">
+        <a-box
+          material="emissive: #edf104" 
+          position="0 3.4 1.32" 
+          scale="0.2 0.45 0.2"
+          rotation="-90 0 0"
+          light="angle: 40; color: #edf104; distance: 100; intensity: 0.7; penumbra: 0.2; type: spot; castShadow: true">
+        </a-box>
+      </a-entity>
+
+      <a-entity
+        id="streetlight4"
+        gltf-model="#streetlight"
+        position="5 0 -4"
+        rotation="0 -90 0">
+        <a-box
+          material="emissive: #edf104" 
+          position="0 3.4 1.32" 
+          scale="0.2 0.45 0.2"
+          rotation="-90 0 0"
+          light="angle: 40; color: #edf104; distance: 100; intensity: 0.7; penumbra: 0.2; type: spot; castShadow: true">
+        </a-box>
       </a-entity>
 
     </a-scene>
