@@ -4,7 +4,7 @@
     <script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script>
   </head>
   <body>
-    <a-scene>
+    <a-scene embedded device-orientation-permission-ui="enabled: true">
 
       <a-assets>
         <a-asset-item
@@ -20,7 +20,8 @@
       <a-entity
         id="pc"
         camera
-        look-controls
+        look-controls="enabled:true; magicWindowTrackingEnabled:true"
+        wasd-controls="enabled:false"
         position="0 2 0">
         <a-entity
           cursor
