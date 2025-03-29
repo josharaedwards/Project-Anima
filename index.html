@@ -4,7 +4,8 @@
     <script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script>
   </head>
   <body>
-    <a-scene xr-mode-ui="enabled:false">
+    <a-scene xr-mode-ui="enabled:false"
+              fog="type: linear; color: #0a0a43; far: 35; near: 0">
 
       <a-assets>
         <a-asset-item
@@ -48,9 +49,9 @@
         id="moon"
         class="clickable"
         geometry="primitive:sphere"
-        material="color:white; emissive:#7980fc; emissiveIntensity:2"
+        material="color:white; emissive:#e8803b; emissiveIntensity:2"
         light="type:point; color:#7980fc; castShadow:true; shadowBias:-0.1"
-        position="3 10 -10">
+        position="4.7 11 -10">
       </a-entity>
 
       <a-entity
