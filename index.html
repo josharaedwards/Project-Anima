@@ -21,6 +21,21 @@
           src="https://raw.githubusercontent.com/josharaedwards/Project-Anima/3cf08c440c1db75725f668b5e088c5236ae7ee86/WebDev/Models/Baobab%20Crossroads.glb"
           >
         </a-asset-item>
+
+        <a-mixin
+          id="streetlightFrame"
+          gltf-model="#streetlight">
+        </a-mixin>
+
+        <a-mixin
+          id="streetlightLamp"
+          geometry="primitive: box"
+          material="emissive: #edf104" 
+          position="0 3.4 1.32" 
+          scale="0.2 0.45 0.2"
+          rotation="-90 0 0"
+          light="angle: 40; color: #edf104; distance: 100; intensity: 0.7; penumbra: 0.2; type: spot; castShadow: true">
+        </a-mixin>
       </a-assets>
 
       <a-entity
@@ -78,66 +93,144 @@
         </a-entity>
       </a-entity>
 
-      <a-entity
-        id="streetlight1"
-        gltf-model="#streetlight"
-        position="-6.25 0.5 -16"
-        rotation="0 90 0">
-        <a-box
-          material="emissive: #edf104" 
-          position="0 3.4 1.32" 
-          scale="0.2 0.45 0.2"
-          rotation="-90 0 0"
-          light="angle: 40; color: #edf104; distance: 100; intensity: 0.7; penumbra: 0.2; type: spot; castShadow: true">
-        </a-box>
-      </a-entity>
-
-      <a-entity
-        id="streetlight2"
-        gltf-model="#streetlight"
-        position="-6.25 0.5 -8"
-        rotation="0 90 0">
-        <a-box
-          material="emissive: #edf104" 
-          position="0 3.4 1.32" 
-          scale="0.2 0.45 0.2"
-          rotation="-90 0 0"
-          light="angle: 40; color: #edf104; distance: 100; intensity: 0.7; penumbra: 0.2; type: spot; castShadow: true">
-        </a-box>
-      </a-entity>
-
-      <a-entity
-        id="streetlight3"
-        gltf-model="#streetlight"
-        position="8.32965 0.4026 -5.62728"
+      <a-entity 
+        id="streetlight_NW_R1" 
+        mixin="streetlightFrame" 
+        position="-7.67 0.5 -5.96" 
         rotation="0 0 0">
-        <a-box
-          material="emissive: #edf104" 
-          position="0 3.4 1.32" 
-          scale="0.2 0.45 0.2"
-          rotation="-90 0 0"
-          light="angle: 40; color: #edf104; distance: 100; intensity: 0.7; penumbra: 0.2; type: spot; castShadow: true">
-        </a-box>
+        <a-entity mixin="streetlightLamp"></a-entity>
+      </a-entity>
+
+      <a-entity 
+        id="streetlight_NW_R2" 
+        mixin="streetlightFrame" 
+        position="-14.19 0.5 -5.96" 
+        rotation="0 0 0">
+        <a-entity mixin="streetlightLamp"></a-entity>
+      </a-entity>
+
+      <a-entity 
+        id="streetlight_NW_R3" 
+        mixin="streetlightFrame" 
+        position="-20.71 0.5 -5.96" 
+        rotation="0 0 0">
+        <a-entity mixin="streetlightLamp"></a-entity>
+      </a-entity>
+
+      <a-entity 
+        id="streetlight_NW_R4" 
+        mixin="streetlightFrame" 
+        position="-27.23 0.5 -5.96" 
+        rotation="0 0 0">
+        <a-entity mixin="streetlightLamp"></a-entity>
       </a-entity>
 
       <a-entity
-        id="streetlight4"
-        gltf-model="#streetlight"
-        position="14.84787 0.403 -5.96261"
+        id="streetlight_NE_R1"
+        mixin="streetlightFrame"
+        position="8.33 0.5 -5.96"
         rotation="0 0 0">
-        <a-box
-          material="emissive: #edf104" 
-          position="0 3.4 1.32" 
-          scale="0.2 0.45 0.2"
-          rotation="-90 0 0"
-          light="angle: 40; color: #edf104; distance: 100; intensity: 0.7; penumbra: 0.2; type: spot; castShadow: true">
-        </a-box>
+        <a-entity mixin="streetlightLamp"></a-entity>
+      </a-entity>
+
+      <a-entity
+        id="streetlight_NE_R2"
+        mixin="streetlightFrame"
+        position="14.85 0.5 -5.96"
+        rotation="0 0 0">
+        <a-entity mixin="streetlightLamp"></a-entity>
+      </a-entity>
+
+      <a-entity 
+        id="streetlight_NE_R3" 
+        mixin="streetlightFrame" 
+        position="23.1 0.5 -5.96" 
+        rotation="0 0 0">
+        <a-entity mixin="streetlightLamp"></a-entity>
+      </a-entity>
+
+      <a-entity 
+        id="streetlight_NE_R4" 
+        mixin="streetlightFrame" 
+        position="33.36 0.5 -5.96" 
+        rotation="0 0 0">
+        <a-entity mixin="streetlightLamp"></a-entity>
+      </a-entity>
+
+      <a-entity 
+        id="streetlight_SW_R1" 
+        mixin="streetlightFrame" 
+        position="-7.67 0.5 5.96" 
+        rotation="0 180 0">
+        <a-entity mixin="streetlightLamp"></a-entity>
+      </a-entity>
+
+      <a-entity 
+        id="streetlight_SW_R2" 
+        mixin="streetlightFrame" 
+        position="-14.19 0.5 5.96" 
+        rotation="0 180 0">
+        <a-entity mixin="streetlightLamp"></a-entity>
+      </a-entity>
+
+      <a-entity 
+        id="streetlight_SW_R3" 
+        mixin="streetlightFrame" 
+        position="-20.71 0.5 5.96" 
+        rotation="0 180 0">
+        <a-entity mixin="streetlightLamp"></a-entity>
+      </a-entity>
+
+      <a-entity 
+        id="streetlight_SW_R4" 
+        mixin="streetlightFrame" 
+        position="-27.23 0.5 5.96" 
+        rotation="0 180 0">
+        <a-entity mixin="streetlightLamp"></a-entity>
+      </a-entity>
+
+      <a-entity 
+        id="streetlight_SE_R1" 
+        mixin="streetlightFrame" 
+        position="8.33 0.5 5.96" 
+        rotation="0 180 0">
+        <a-entity mixin="streetlightLamp"></a-entity>
+      </a-entity>
+
+      <a-entity 
+        id="streetlight_SE_R2" 
+        mixin="streetlightFrame" 
+        position="14.85 0.5 5.96" 
+        rotation="0 180 0">
+        <a-entity mixin="streetlightLamp"></a-entity>
+      </a-entity>
+
+      <a-entity 
+        id="streetlight_SE_R3" 
+        mixin="streetlightFrame" 
+        position="23.1 0.5 5.96" 
+        rotation="0 180 0">
+        <a-entity mixin="streetlightLamp"></a-entity>
+      </a-entity>
+
+      <a-entity 
+        id="streetlight_SE_R4" 
+        mixin="streetlightFrame" 
+        position="33.36 0.5 5.96" 
+        rotation="0 180 0">
+        <a-entity mixin="streetlightLamp"></a-entity>
       </a-entity>
 
       <a-entity
         id="streetAndsideWalk"
         gltf-model="#streetAndSidewalk"
         position="0 0 0">
+      </a-entity>
+
+      <a-entity
+        id="billboardLight"
+        light="color: #f5f5f5; distance: 5; intensity: 10; type: point; castShadow: true; shadowBias: -0.1"
+        position="-11.256 8.523 -20.46057">
       </a-entity>
 
       <a-entity 
