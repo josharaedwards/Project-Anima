@@ -12,14 +12,21 @@
           id="car"
           src="https://raw.githubusercontent.com/josharaedwards/Project-Anima/b8c4458c12033884799d26aaa85dd0b1784e5a14/WebDev/Models/car.glb">
         </a-asset-item>
+
         <a-asset-item
           id="streetlight"
           src="https://raw.githubusercontent.com/josharaedwards/Project-Anima/e43d84128f042adfe5f63e25bbd8d66b63c8a4aa/WebDev/Models/streetLight1.glb">
         </a-asset-item>
+
         <a-asset-item
           id="streetAndSidewalk"
           src="https://raw.githubusercontent.com/josharaedwards/Project-Anima/3cf08c440c1db75725f668b5e088c5236ae7ee86/WebDev/Models/Baobab%20Crossroads.glb"
           >
+        </a-asset-item>
+
+        <a-asset-item
+          id="train"
+          src="https://raw.githubusercontent.com/josharaedwards/Project-Anima/4f2cbdc80459a85b613c8dde9262ab3cf85afe8e/WebDev/Models/Baobab%20Train.glb">
         </a-asset-item>
 
         <a-mixin
@@ -225,6 +232,23 @@
         id="streetAndsideWalk"
         gltf-model="#streetAndSidewalk"
         position="0 0 0">
+      </a-entity>
+
+      <a-entity
+        id="trainMoving"
+        gltf-model="#train"
+        position="80 14.5 -26"
+        animation="dir: alternate; dur: 9000; loop: true; property: position; to: -100 14.5 -26">
+        <a-entity
+          id="frontLight" 
+          light="color: #f5827a; distance: 3.5; intensity: 20; type: point; castShadow: true; shadowBias: -0.1" 
+          position="-20.31074 1.31167 -1.11936">
+        </a-entity>
+        <a-entity
+          id="backLight" 
+          light="color: #f5827a; distance: 3.5; intensity: 20; type: point; castShadow: true; shadowBias: -0.1" 
+          position="9.97679 1.31167 -1.11936">
+        </a-entity>
       </a-entity>
 
       <a-entity
