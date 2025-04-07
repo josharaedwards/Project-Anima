@@ -56,10 +56,24 @@
           raycaster="objects:.clickable"
           cursor="fuse:true; fuseTimeout:2000"
           geometry="primitive:triangle; vertexA:0 -0.040 0; vertexB: -0.050 -0.1 0; vertexC:0.050 -0.1 0"
-          material="color:#83f9fb; shader:flat; wireframe:true"
+          material="color:#83f9fb; shader:flat"
           position="0 0 -2"
-          scale="0.5 0.5 0.5"
-          animation__fusing="property:scale; from: 1 1 1; to:0.5 0.5 0.5; startEvents:fusing">
+          scale="1 1 1"
+          animation__fusing="property:scale; from: 1 1 1; to:0.2 0.2 0.2; startEvents:fusing"
+          animation__reset="property:scale; to:1 1 1; dur: 100; startEvents:mouseleave">
+          <a-circle
+            position="0 -0.07 0.5"
+            scale="0.4 0.4 0.4"
+            radius="0.05"
+            material="color:#f2f75e; shader:flat">
+          </a-circle>
+          <a-triangle
+            scale="1.1 1 1"
+            material="color:black; shader:flat; wireframe:true"
+            vertex-a="0 -0.040 0"
+            vertex-b="-0.050 -0.1 0"
+            vertex-c="0.050 -0.1 0">
+          </a-triangle>
         </a-entity>
       </a-entity>
 
@@ -266,8 +280,8 @@
         scale="0.7 0.7 0.7"
         material="blending:additive; color: #ce1c1c"
         animation__wormhole="property:rotation; from: 0 0 0; to: 0 360 0; dur 2000; startEvents:fusing"
-        animation__cancel="property:rotation; from: 0 90 0; to: 0 0 0; dur 100; startEvents:mouseleave"
-        link="backgroundColor: #b324c6; href: https://jesgrewsoul.itch.io/anomaly-zine-by-jaera; on: animationcomplete__wormhole; title: WORMHOLE">  
+        animation__reset="property:rotation; to: 0 0 0; dur 100; startEvents:mouseleave"
+        link="backgroundColor: #b324c6; href: https://jesgrewsoul.itch.io/anomaly-zine-by-jaera; on: animationcomplete__wormhole">  
       </a-entity>
 
       <a-plane
