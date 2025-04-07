@@ -54,7 +54,7 @@
         position="0 2 0">
         <a-entity
           raycaster="objects:.clickable"
-          cursor="fuse:true; fuseTimeout:100"
+          cursor="fuse:true; fuseTimeout:2000"
           geometry="primitive:triangle; vertexA:0 -0.040 0; vertexB: -0.050 -0.1 0; vertexC:0.050 -0.1 0"
           material="color:#83f9fb; shader:flat; wireframe:true"
           position="0 0 -2"
@@ -265,7 +265,8 @@
         position="-3.39526 0.29927 -4.23848" 
         scale="0.7 0.7 0.7"
         material="blending:additive; color: #ce1c1c"
-        animation__wormhole="property:rotation; from: 0 0 0; to: 0 360 0; dur 2000; startEvents:click"
+        animation__wormhole="property:rotation; from: 0 0 0; to: 0 360 0; dur 2000; startEvents:fusing"
+        animation__cancel="property:rotation; from: 0 90 0; to: 0 0 0; dur 100; startEvents:mouseleave"
         link="backgroundColor: #b324c6; href: https://jesgrewsoul.itch.io/anomaly-zine-by-jaera; on: animationcomplete__wormhole; title: WORMHOLE">  
       </a-entity>
 
