@@ -286,18 +286,26 @@
 
       <a-plane
         id="mask"
-        position="3 2 -4.34664"
+        position="8.549 1.6892 -5.57295"
+        rotation="0 -58.728 0"
         src="https://raw.githubusercontent.com/josharaedwards/Project-Anima/266101f50bb8f4167e0f54889eed1f69b0f53704/WebDev/Images/mask1.png"
-        material="transparent:true; blending: additive">
+        material="transparent:true">
+        <a-entity 
+          geometry="primitive: cylinder; openEnded: true; radius: 0.25" 
+          scale="1 2.3 1" 
+          position="0 -1.00367 -0.30735"
+          material="color:#f49eff">
+        </a-entity>
       </a-plane>
 
       <a-sphere
         id="soundMace"
+        class="clickable"
         position="-2 2 -4"
         scale="0.2 0.2 0.2"
         rotation="0 0 0"
         animation__spin="property:rotation; from:0 0 0; to:120 35 200; dur:5000; easing:easeInElastic; loop:true; dir:alternate"
-        animation__bounce="property:position; from:-2 2 -4; to:-2 2.5 -4; dur:3000; easing:easeInOutCirc; loop:true; dir:alternate">
+        animation__bounce="property:position; from:-2 2 -4; to:-2 2.5 -4; dur:3000; easing:easeInOutCirc; loop:true; dir:alternate; startEvents:fusing">
         <a-entity
           rotation="0 0 0"
           scale="1.3 1.3 1.3"
