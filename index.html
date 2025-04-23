@@ -2,6 +2,7 @@
   <head>
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
   </head>
   <body>
     <a-scene xr-mode-ui="enabled:false"
@@ -113,6 +114,34 @@
           light="color: #d725ef; distance: 1.6; type: point"
           animation__wheelSpin="property:rotation; dir:alternate; dur:800; easing:easeInSine; loop:true; to: 0 0 270">
         </a-entity>
+      </a-entity>
+
+      <a-entity
+        id="jaera">
+        <a-plane
+          id="jaeRaBody"
+          class="clickable"
+          position="0 1.4 -4"
+          scale="2.5 2.5 1"
+          src="https://raw.githubusercontent.com/josharaedwards/Project-Anima/b24559ca6550d6bc9f85e590dde783d827ba7730/WebDev/Images/jaeraStanding.png"
+          material="transparent:true"
+          event-set__maskOn="_event: mouseenter; _target: #jaeRaMask; visible: true"
+          event-set__maskOff="_event: mouseleave; _target: #jaeRaMask; visible: false">
+          <a-plane
+            id="jaeRaMask" 
+            position="-0.046 0.22515 0.107" 
+            scale="0.18 0.18 1" 
+            src="https://raw.githubusercontent.com/josharaedwards/Project-Anima/b24559ca6550d6bc9f85e590dde783d827ba7730/WebDev/Images/jaeraMask.png"
+            material="alphaTest: 1; transparent:true">
+          </a-plane>
+        </a-plane>
+        <a-light 
+          id="jaeRaLight"
+          type="point" 
+          position="0.48385 2.23 -3.52736" 
+          light="color: #9d9dd7; distance: 1; intensity: 2"
+          animation__wave="property:distance; dir:alternate; dur:2000; easing:easeInSine; loop:true; from:5; to:1">
+        </a-light>
       </a-entity>
 
       <a-entity 
