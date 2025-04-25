@@ -45,6 +45,16 @@
           rotation="-90 0 0"
           light="angle: 40; color: #edf104; distance: 100; intensity: 0.7; penumbra: 0.2; type: spot; castShadow: true">
         </a-mixin>
+
+        <a-mixin
+          id="streetlightRay"
+          geometry="primitive: sphere; thetaLength: 90"
+          material="opacity: 0.3; blending: normal; emissive: #e9e21c; emissiveIntensity: 3"
+          position="0 3.37723 1.29403"
+          scale="0.5 0.5 0.5"
+          rotation="0 -180 -180">
+        </a-mixin>
+
       </a-assets>
 
       <a-entity
@@ -55,7 +65,7 @@
         position="0 2 0">
         <a-entity
           raycaster="objects:.clickable"
-          cursor="fuse:true; fuseTimeout:2000"
+          cursor="fuse:true; fuseTimeout:800"
           geometry="primitive:triangle; vertexA:0 -0.040 0; vertexB: -0.050 -0.1 0; vertexC:0.050 -0.1 0"
           material="color:#83f9fb; shader:flat"
           position="0 0 -2"
@@ -96,24 +106,36 @@
 
       <a-entity
         id="car"
+        class="clickable"
         gltf-model="#car"
         position="-3.85692 0 -12"
-        rotation="0 83 0">
+        rotation="0 83 0"
+        animation__hover="property:position; dir:alternate; dur:2400; loop:1; easing:easeInSine; from:-3.85692 0 -12; to:-3.85692 0.9 -12; startEvents: click"
+        animation__tilt="property:rotation; dir:alternate; dur:1500; delay:600; loop:1; easing:easeInOutQuad; from:0 83 0; to:7 83 -5; startEvents: click">
         <a-entity 
           id="wheel1"
           geometry="primitive: circle; radius: 0.37; segments: 16" 
           position="-0.88407 0.39659 0.98941" 
-          material="emissive: #f148f4; emissiveIntensity: 1.36; wireframe: true; wireframeLinewidth: 1"  
-          light="color: #d725ef; distance: 1.6; type: point"
+          material="emissive: #f148f4; emissiveIntensity: 1.36; wireframe: true; wireframeLinewidth: 1"
           animation__wheelSpin="property:rotation; dir:alternate; dur:800; easing:easeInSine; loop:true; to: 0 0 270">
         </a-entity>
         <a-entity 
           id="wheel2" 
           geometry="primitive: circle; radius: 0.37; segments: 16"
           position="1.05146 0.39659 0.98941" 
-          material="emissive: #f148f4; emissiveIntensity: 1.36; wireframe: true; wireframeLinewidth: 1" 
-          light="color: #d725ef; distance: 1.6; type: point"
+          material="emissive: #f148f4; emissiveIntensity: 1.36; wireframe: true; wireframeLinewidth: 1"
           animation__wheelSpin="property:rotation; dir:alternate; dur:800; easing:easeInSine; loop:true; to: 0 0 270">
+        </a-entity>
+        <a-entity
+          id="underLight"
+          light="color: #89e8f5; distance:3; intensity:2; type: point">
+        </a-entity>
+        <a-entity
+          id="grill"
+          geometry="primitive:box"
+          position="-1.69529 0.56764 0.06821" 
+          scale="0.26649 0.307 1.21612"
+          material="emissive: #27e619; wireframe: true; wireframeLinewidth: 10">
         </a-entity>
       </a-entity>
 
@@ -148,8 +170,8 @@
           id="jaeRaLight"
           type="point" 
           position="0.48385 2.23 -3.52736" 
-          light="color: #9d9dd7; distance: 2.5; intensity: 2"
-          animation__wave="property:distance; dir:alternate; dur:2000; easing:easeInSine; loop:true; from:5; to:2.5">
+          light="color: #e8e5d5; distance: 4; intensity: 1"
+          animation__wave="property:distance; dir:alternate; dur:2000; easing:easeInSine; loop:true; from:5; to:4">
         </a-light>
       </a-entity>
 
@@ -159,6 +181,7 @@
         position="-7.67 0.5 -5.96" 
         rotation="0 0 0">
         <a-entity mixin="streetlightLamp"></a-entity>
+        <a-entity mixin="streetlightRay"></a-entity>
       </a-entity>
 
       <a-entity 
@@ -167,6 +190,7 @@
         position="-14.19 0.5 -5.96" 
         rotation="0 0 0">
         <a-entity mixin="streetlightLamp"></a-entity>
+        <a-entity mixin="streetlightRay"></a-entity>
       </a-entity>
 
       <a-entity 
@@ -175,6 +199,7 @@
         position="-20.71 0.5 -5.96" 
         rotation="0 0 0">
         <a-entity mixin="streetlightLamp"></a-entity>
+        <a-entity mixin="streetlightRay"></a-entity>
       </a-entity>
 
       <a-entity 
@@ -183,6 +208,7 @@
         position="-27.23 0.5 -5.96" 
         rotation="0 0 0">
         <a-entity mixin="streetlightLamp"></a-entity>
+        <a-entity mixin="streetlightRay"></a-entity>
       </a-entity>
 
       <a-entity
@@ -191,6 +217,7 @@
         position="8.33 0.5 -5.96"
         rotation="0 0 0">
         <a-entity mixin="streetlightLamp"></a-entity>
+        <a-entity mixin="streetlightRay"></a-entity>
       </a-entity>
 
       <a-entity
@@ -199,6 +226,7 @@
         position="14.85 0.5 -5.96"
         rotation="0 0 0">
         <a-entity mixin="streetlightLamp"></a-entity>
+        <a-entity mixin="streetlightRay"></a-entity>
       </a-entity>
 
       <a-entity 
@@ -207,6 +235,7 @@
         position="23.1 0.5 -5.96" 
         rotation="0 0 0">
         <a-entity mixin="streetlightLamp"></a-entity>
+        <a-entity mixin="streetlightRay"></a-entity>
       </a-entity>
 
       <a-entity 
@@ -215,6 +244,7 @@
         position="33.36 0.5 -5.96" 
         rotation="0 0 0">
         <a-entity mixin="streetlightLamp"></a-entity>
+        <a-entity mixin="streetlightRay"></a-entity>
       </a-entity>
 
       <a-entity 
@@ -223,6 +253,7 @@
         position="-7.67 0.5 5.96" 
         rotation="0 180 0">
         <a-entity mixin="streetlightLamp"></a-entity>
+        <a-entity mixin="streetlightRay"></a-entity>
       </a-entity>
 
       <a-entity 
@@ -231,6 +262,7 @@
         position="-14.19 0.5 5.96" 
         rotation="0 180 0">
         <a-entity mixin="streetlightLamp"></a-entity>
+        <a-entity mixin="streetlightRay"></a-entity>
       </a-entity>
 
       <a-entity 
@@ -239,6 +271,7 @@
         position="-20.71 0.5 5.96" 
         rotation="0 180 0">
         <a-entity mixin="streetlightLamp"></a-entity>
+        <a-entity mixin="streetlightRay"></a-entity>
       </a-entity>
 
       <a-entity 
@@ -247,6 +280,7 @@
         position="-27.23 0.5 5.96" 
         rotation="0 180 0">
         <a-entity mixin="streetlightLamp"></a-entity>
+        <a-entity mixin="streetlightRay"></a-entity>
       </a-entity>
 
       <a-entity 
@@ -255,6 +289,7 @@
         position="8.33 0.5 5.96" 
         rotation="0 180 0">
         <a-entity mixin="streetlightLamp"></a-entity>
+        <a-entity mixin="streetlightRay"></a-entity>
       </a-entity>
 
       <a-entity 
@@ -263,6 +298,7 @@
         position="14.85 0.5 5.96" 
         rotation="0 180 0">
         <a-entity mixin="streetlightLamp"></a-entity>
+        <a-entity mixin="streetlightRay"></a-entity>
       </a-entity>
 
       <a-entity 
@@ -271,6 +307,7 @@
         position="23.1 0.5 5.96" 
         rotation="0 180 0">
         <a-entity mixin="streetlightLamp"></a-entity>
+        <a-entity mixin="streetlightRay"></a-entity>
       </a-entity>
 
       <a-entity 
@@ -279,6 +316,7 @@
         position="33.36 0.5 5.96" 
         rotation="0 180 0">
         <a-entity mixin="streetlightLamp"></a-entity>
+        <a-entity mixin="streetlightRay"></a-entity>
       </a-entity>
 
       <a-entity
@@ -336,20 +374,43 @@
         </a-entity>
       </a-plane>
 
-      <a-sphere
-        id="soundMace"
-        class="clickable"
-        position="-2 2 -4"
-        scale="0.2 0.2 0.2"
-        rotation="0 0 0"
-        animation__spin="property:rotation; from:0 0 0; to:120 35 200; dur:5000; easing:easeInElastic; loop:true; dir:alternate"
-        animation__bounce="property:position; from:-2 2 -4; to:-2 2.5 -4; dur:3000; easing:easeInOutCirc; loop:true; dir:alternate; startEvents:fusing">
-        <a-entity
+      <a-entity
+        id="miniSpirits"
+        position="-6.21 3.0864 -4.04048"
+        animation__rotate="property:rotation; from:0 0 0; to:0 360 0; dur:2000; loop:true"
+        animation__translate="property:position; from: -6.21 3.0864 -4.04048; to: -7 3.1 -4; dur:6000; loop:true; dir:alternate">
+        <a-sphere
+          id="miniSpirit1"
+          position="1 0 0"
+          scale="0.05 0.05 0.05"
           rotation="0 0 0"
-          scale="1.3 1.3 1.3"
-          geometry="primitive: octahedron">
-        </a-entity>
-      </a-sphere>
+          material="emissive: #eedddd; emissiveIntensity: 50"
+          animation__spin="property:rotation; from:0 0 0; to:120 35 200; dur:1500; easing:easeInElastic; loop:true; dir:alternate"
+          animation__jitter="property:position; from:0.6 0 0; to:-0.1 0.3 0; dur:4000; easing:easeInElastic; loop:true; dir:alternate">
+          <a-entity
+            rotation="0 0 0"
+            scale="1.5 1.5 1.5"
+            geometry="primitive: octahedron"
+            material="emissive: #87edb0; emissiveIntensity: 0.5">
+          </a-entity>
+        </a-sphere>
+        <a-sphere
+          id="miniSpirit2"
+          position="-3 0 0"
+          scale="0.05 0.05 0.05"
+          rotation="0 0 0"
+          material="emissive: #eedddd; emissiveIntensity: 50"
+          animation__spin="property:rotation; from:-0.2 0 0; to:120 35 200; dur:1500; easing:easeInElastic; loop:true; dir:alternate"
+          animation__jitter="property:position; from:-0.2 0 0; to:-0.4 -0.35 0; dur:1700; easing:easeInElastic; loop:true; dir:alternate">
+          <a-entity
+            rotation="0 0 0"
+            scale="1.5 1.5 1.5"
+            geometry="primitive: octahedron"
+            material="emissive: #87edb0; emissiveIntensity: 0.5">
+          </a-entity>
+        </a-sphere>
+      </a-entity>
+      
 
     </a-scene>
   </body>
