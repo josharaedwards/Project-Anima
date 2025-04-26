@@ -116,14 +116,14 @@
           id="wheel1"
           geometry="primitive: circle; radius: 0.37; segments: 16" 
           position="-0.88407 0.39659 0.98941" 
-          material="emissive: #f148f4; emissiveIntensity: 1.36; wireframe: true; wireframeLinewidth: 1"
+          material="emissive: #89e8f5; emissiveIntensity: 1.36; wireframe: true; wireframeLinewidth: 1"
           animation__wheelSpin="property:rotation; dir:alternate; dur:800; easing:easeInSine; loop:true; to: 0 0 270">
         </a-entity>
         <a-entity 
           id="wheel2" 
           geometry="primitive: circle; radius: 0.37; segments: 16"
           position="1.05146 0.39659 0.98941" 
-          material="emissive: #f148f4; emissiveIntensity: 1.36; wireframe: true; wireframeLinewidth: 1"
+          material="emissive: #89e8f5; emissiveIntensity: 1.36; wireframe: true; wireframeLinewidth: 1"
           animation__wheelSpin="property:rotation; dir:alternate; dur:800; easing:easeInSine; loop:true; to: 0 0 270">
         </a-entity>
         <a-entity
@@ -135,7 +135,7 @@
           geometry="primitive:box"
           position="-1.69529 0.56764 0.06821" 
           scale="0.26649 0.307 1.21612"
-          material="emissive: #27e619; wireframe: true; wireframeLinewidth: 10">
+          material="emissive: #27e619; wireframe: true; wireframeLinewidth: 5">
         </a-entity>
       </a-entity>
 
@@ -360,19 +360,36 @@
         link="backgroundColor: #b324c6; href: https://jesgrewsoul.itch.io/anomaly-zine-by-jaera; on: animationcomplete__wormhole">  
       </a-entity>
 
-      <a-plane
-        id="mask"
-        position="8.549 1.6892 -5.57295"
-        rotation="0 -58.728 0"
-        src="https://raw.githubusercontent.com/josharaedwards/Project-Anima/266101f50bb8f4167e0f54889eed1f69b0f53704/WebDev/Images/mask1.png"
-        material="transparent:true">
-        <a-entity 
-          geometry="primitive: cylinder; openEnded: true; radius: 0.25" 
-          scale="1 2.3 1" 
-          position="0 -1.00367 -0.30735"
-          material="color:#f49eff">
-        </a-entity>
-      </a-plane>
+      <a-entity
+        id="maskMan"
+        class="clickable"
+        geometry="primitive: cylinder; openEnded: true; radius: 0.25" 
+        scale="1 1.18 1" 
+        position="7.28127 0.73595 4.59736"
+        rotation="0 -113 0"
+        material="color:#f49eff"
+        animation="property:position; from:7.28127 0.73595 4.59736; to:3 0.73595 1; dur:500; dir:alternate; loop:1; easing:easeInOutElastic; startEvents:click">
+        <a-plane
+          id="mask"
+          position="-0.08938 0.49664 0.3"
+          rotation="0 0 0"
+          src="https://raw.githubusercontent.com/josharaedwards/Project-Anima/266101f50bb8f4167e0f54889eed1f69b0f53704/WebDev/Images/mask1.png"
+          material="transparent:true"
+          animation__turn="property:rotation; from:0 0 -30; to:0 0 30; dur:1000; dir:alternate; loop:true; easing:easeInOutElastic">
+          <a-sphere
+            id="leftEye"
+            position="-0.1 -0.01 0"
+            radius="0.03"
+            material="emissive: #f5f2e1; emissiveIntensity: 1.36">
+          </a-sphere>
+          <a-sphere
+            id="rightEye"
+            position="0.1 -0.01 0"
+            radius="0.03"
+            material="emissive: #f5f2e1; emissiveIntensity: 1.36">
+          </a-sphere>
+        </a-plane>
+      </a-entity>
 
       <a-entity
         id="miniSpirits"
