@@ -135,7 +135,7 @@
           geometry="primitive:box"
           position="-1.69529 0.56764 0.06821" 
           scale="0.26649 0.307 1.21612"
-          material="emissive: #27e619; wireframe: true; wireframeLinewidth: 5">
+          material="emissive: #27e619; emissiveIntensity:2; wireframe: false; wireframeLinewidth: 5">
         </a-entity>
       </a-entity>
 
@@ -149,7 +149,13 @@
           src="https://raw.githubusercontent.com/josharaedwards/Project-Anima/b24559ca6550d6bc9f85e590dde783d827ba7730/WebDev/Images/jaeraStanding.png"
           material="transparent:true"
           event-set__maskOn="_event: mouseenter; _target: #jaeRaMask; visible: true"
-          event-set__maskOff="_event: mouseleave; _target: #jaeRaMask; visible: false">
+          event-set__maskOff="_event: mouseleave; _target: #jaeRaMask; visible: false"
+          event-set__waveActive="_event: click; _target: #jaeRaLight; animation__wave.to: 4.5"
+          event-set__waveInactive="_event: mouseleave; _target: #jaeRaLight; animation__wave.to: 3.5"
+          event-set__magicPulseActive="_event: click; _target: #jaeRaMagic; animation__magicPulse.to: 0.6"
+          event-set__magicPulseInactive="_event: mouseleave; _target: #jaeRaMagic; animation__magicPulse.to: 0.5"
+          event-set__magicSpinActive="_event: click; _target: #jaeRaMagic; animation__magicSpin.dur: 3000"
+          event-set__magicSpinInactive="_event: mouseleave; _target: #jaeRaMagic; animation__magicSpin.dur: 6000">
           <a-plane
             id="jaeRaMask" 
             position="-0.046 0.22515 0.107" 
@@ -163,15 +169,16 @@
             scale="0.4 0.4 1"
             src="https://raw.githubusercontent.com/josharaedwards/Project-Anima/1f0a1500573a8b8784190bf1c6d9db79994f4936/WebDev/Images/jaeRaSigil.png"
             material="alphaTest: 1; transparent:true"
-            animation__magicSpin="property:rotation; dur:6000; easing:easeInSine; loop:true; from: 0 0 0; to: 0 0 360">
+            animation__magicSpin="property:rotation; dur:6000; easing:easeInSine; loop:true; from: 0 0 0; to: 0 0 360"
+            animation__magicPulse="property:scale; dur:2000; dir:alternate; easing:easeInSine; loop:true; from: 0.4 0.4 1; to: 0.5 0.5 1">
           </a-plane>
         </a-plane>
         <a-light 
           id="jaeRaLight"
           type="point" 
           position="0.48385 2.23 -3.52736" 
-          light="color: #e8e5d5; distance: 4; intensity: 1"
-          animation__wave="property:distance; dir:alternate; dur:2000; easing:easeInSine; loop:true; from:5; to:4">
+          light="color: #f0eee4; distance: 4; intensity: 1"
+          animation__wave="property:distance; dir:alternate; dur:2000; easing:easeInSine; loop:true; from:2.5; to:3">
         </a-light>
       </a-entity>
 
