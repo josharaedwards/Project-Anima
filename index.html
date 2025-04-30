@@ -22,7 +22,7 @@
 
         <a-asset-item
           id="streetAndSidewalk"
-          src="https://raw.githubusercontent.com/josharaedwards/Project-Anima/3cf08c440c1db75725f668b5e088c5236ae7ee86/WebDev/Models/Baobab%20Crossroads.glb"
+          src="https://raw.githubusercontent.com/josharaedwards/Project-Anima/39e14d0b2f9c8cfa91730a952a063158ead2cd/WebDev/Models/Baobab%20Crossroads.glb"
           >
         </a-asset-item>
 
@@ -97,10 +97,9 @@
 
       <a-entity
         id="moon"
-        class="clickable"
         geometry="primitive:sphere"
         material="color:white; emissive:#e8803b; emissiveIntensity:2"
-        light="type:point; color:#7980fc; castShadow:true; shadowBias:-0.1"
+        light="type: point; color: #9f77fd; castShadow: true; shadowBias: -0.1; intensity: 15"
         position="4.7 11 -10">
       </a-entity>
 
@@ -150,12 +149,13 @@
           material="transparent:true"
           event-set__maskOn="_event: mouseenter; _target: #jaeRaMask; visible: true"
           event-set__maskOff="_event: mouseleave; _target: #jaeRaMask; visible: false"
-          event-set__waveActive="_event: click; _target: #jaeRaLight; animation__wave.to: 4.5"
-          event-set__waveInactive="_event: mouseleave; _target: #jaeRaLight; animation__wave.to: 3.5"
-          event-set__magicPulseActive="_event: click; _target: #jaeRaMagic; animation__magicPulse.to: 0.6"
-          event-set__magicPulseInactive="_event: mouseleave; _target: #jaeRaMagic; animation__magicPulse.to: 0.5"
-          event-set__magicSpinActive="_event: click; _target: #jaeRaMagic; animation__magicSpin.dur: 3000"
-          event-set__magicSpinInactive="_event: mouseleave; _target: #jaeRaMagic; animation__magicSpin.dur: 6000">
+          event-set__waveActive="_event: click; _target: #jaeRaLight; animation__wave.to: 4.5; animation__wave.loop: 0"
+          event-set__waveInactive="_event: mouseleave; _target: #jaeRaLight; animation__wave.to: 3.5; animation__wave.loop: true"
+          event-set__magicPulseActive="_event: click; _target: #jaeRaMagic; animation__magicPulse.to: 0.6; animation__magicPulse.loop: 0"
+          event-set__magicPulseInactive="_event: mouseleave; _target: #jaeRaMagic; animation__magicPulse.to: 0.5; animation__magicPulse.loop: true"
+          event-set__magicSpinActive="_event: click; _target: #jaeRaMagic; animation__magicSpin.dur: 2000"
+          event-set__magicSpinInactive="_event: mouseleave; _target: #jaeRaMagic; animation__magicSpin.dur: 6000"
+          event-set__anomalyPortalActive="_event: click; _target: #anomalyPortal; animation__portalTranslate.from: 1.8 -0.7 -5;  animation__portalTranslate.to: 1.8 1.5 -5">
           <a-plane
             id="jaeRaMask" 
             position="-0.046 0.22515 0.107" 
@@ -177,9 +177,22 @@
           id="jaeRaLight"
           type="point" 
           position="0.48385 2.23 -3.52736" 
-          light="color: #f0eee4; distance: 4; intensity: 1"
+          light="color: #f0eee4; distance: 4; intensity: 2"
           animation__wave="property:distance; dir:alternate; dur:2000; easing:easeInSine; loop:true; from:2.5; to:3">
         </a-light>
+      </a-entity>
+
+      <a-entity 
+        id="anomalyPortal"
+        class="clickable" 
+        geometry="" 
+        position="1.8 -0.7 -5" 
+        scale="1 1 1"
+        material="blending:additive; color: #ce1c1c"
+        animation__wormhole="property:rotation; from: 0 0 0; to: 0 360 0; dur 2000; startEvents:fusing"
+        animation__reset="property:rotation; to: 0 0 0; dur 100; startEvents:mouseleave"
+        link="backgroundColor: #b324c6; href: https://jesgrewsoul.itch.io/anomaly-zine-by-jaera; on: animationcomplete__wormhole"
+        animation__portalTranslate="property:position; from 1.8 -0.7 -5; to: 1.8 -0.7 -5; dur: 3000">  
       </a-entity>
 
       <a-entity 
@@ -187,8 +200,21 @@
         mixin="streetlightFrame" 
         position="-7.67 0.5 -5.96" 
         rotation="0 0 0">
-        <a-entity mixin="streetlightLamp"></a-entity>
-        <a-entity mixin="streetlightRay"></a-entity>
+        <a-entity
+          id="spiritLight" 
+          mixin="streetlightLamp"
+          animation__lightfade="property: light.angle; from: 40; to: 5; loop: true; easing: easeInElastic; dur: 2000; dir: alternate"
+          animation__emissivefade="property: material.emissiveIntensity; from: 1; to: 0.2; loop: true; easing: easeInElastic; dur: 2000; dir: alternate">
+          </a-entity>
+        <a-entity
+          id="spiritGlow"
+          class="clickable"
+          event-set__turnOffGlow="_event: click; _target:#spiritGlow; animation__lightfade.to: 0 0 0; animation__lightfade.loop: 0; animation__lightfade.easing: easeInOutSine"
+          event-set__turnOffLight="_event: click; _target:#spiritLight; animation__lightfade.to: 0 0 0; animation__lightfade.loop: 0; animation__lightfade.easing: easeInOutSine; animation__emissivefade.to: 0; animation__emissivefade.loop: 0; animation__emissivefade.easing: easeInOutSine"
+          event-set__shooSpirits="_event: click; _target:#miniSpirits; animation__translate.to: -11.256 8.523 -20.46057; animation__translate.loop: 0" 
+          mixin="streetlightRay"
+          animation__lightfade="property: scale; from: 0.5 0.5 0.5; to: 0.2 0.2 0.2; dir: alternate; loop: true; easing: easeInElastic; dur: 2000">
+        </a-entity>
       </a-entity>
 
       <a-entity 
@@ -351,20 +377,8 @@
 
       <a-entity
         id="billboardLight"
-        light="color: #f5f5f5; distance: 5; intensity: 10; type: point; castShadow: true; shadowBias: -0.1"
+        light="color: #f5f5f5; distance: 5; intensity: 50; type: point; castShadow: true; shadowBias: -0.1"
         position="-11.256 8.523 -20.46057">
-      </a-entity>
-
-      <a-entity 
-        id="surprise"
-        class="clickable" 
-        geometry="" 
-        position="1.8099 0.299 -0.24305" 
-        scale="0.44645 0.12218 0.7"
-        material="blending:additive; color: #ce1c1c"
-        animation__wormhole="property:rotation; from: 0 0 0; to: 0 360 0; dur 2000; startEvents:fusing"
-        animation__reset="property:rotation; to: 0 0 0; dur 100; startEvents:mouseleave"
-        link="backgroundColor: #b324c6; href: https://jesgrewsoul.itch.io/anomaly-zine-by-jaera; on: animationcomplete__wormhole">  
       </a-entity>
 
       <a-entity
@@ -417,6 +431,12 @@
             geometry="primitive: octahedron"
             material="emissive: #87edb0; emissiveIntensity: 0.5">
           </a-entity>
+          <a-sphere
+            id="miniSpiritGlow1"
+            scale="2 2 2"
+            material="emissive: #ffe14d; emissiveIntensity: 0.5; opacity: 0.44; blending: additive; transparent: false"
+            animation__glow="property:scale; from:2.5 2.5 2.5; to:3.75 3.75 3.75; dur:2000; easing:easeInOutSine; loop:true; dir:alternate">
+          </a-sphere>
         </a-sphere>
         <a-sphere
           id="miniSpirit2"
@@ -432,6 +452,12 @@
             geometry="primitive: octahedron"
             material="emissive: #87edb0; emissiveIntensity: 0.5">
           </a-entity>
+          <a-sphere
+            id="miniSpiritGlow2"
+            scale="2 2 2"
+            material="emissive: #ffe14d; emissiveIntensity: 0.5; opacity: 0.44; blending: additive; transparent: false"
+            animation__glow="property:scale; from:2.5 2.5 2.5; to:3.75 3.75 3.75; dur:2000; easing:easeInOutSine; loop:true; dir:alternate">
+          </a-sphere>
         </a-sphere>
       </a-entity>
       
