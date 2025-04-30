@@ -142,20 +142,25 @@
         id="jaera">
         <a-plane
           id="jaeRaBody"
-          class="clickable"
           position="0 1.4 -4"
           scale="2.5 2.5 1"
           src="https://raw.githubusercontent.com/josharaedwards/Project-Anima/b24559ca6550d6bc9f85e590dde783d827ba7730/WebDev/Images/jaeraStanding.png"
-          material="transparent:true"
-          event-set__maskOn="_event: mouseenter; _target: #jaeRaMask; visible: true"
-          event-set__maskOff="_event: mouseleave; _target: #jaeRaMask; visible: false"
-          event-set__waveActive="_event: click; _target: #jaeRaLight; animation__wave.to: 4.5; animation__wave.loop: 0"
-          event-set__waveInactive="_event: mouseleave; _target: #jaeRaLight; animation__wave.to: 3.5; animation__wave.loop: true"
-          event-set__magicPulseActive="_event: click; _target: #jaeRaMagic; animation__magicPulse.to: 0.6; animation__magicPulse.loop: 0"
-          event-set__magicPulseInactive="_event: mouseleave; _target: #jaeRaMagic; animation__magicPulse.to: 0.5; animation__magicPulse.loop: true"
-          event-set__magicSpinActive="_event: click; _target: #jaeRaMagic; animation__magicSpin.dur: 2000"
-          event-set__magicSpinInactive="_event: mouseleave; _target: #jaeRaMagic; animation__magicSpin.dur: 6000"
-          event-set__anomalyPortalActive="_event: click; _target: #anomalyPortal; animation__portalTranslate.from: 1.8 -0.7 -5;  animation__portalTranslate.to: 1.8 1.5 -5">
+          material="transparent:true">
+          <a-plane
+            id="jaeRaCollider"
+            class="clickable"
+            position="0 -0.04392 0.07687"
+            scale="0.44487 0.8764 1"
+            material="alphaTest: 1; opacity: 0"
+            event-set__maskOn="_event: mouseenter; _target: #jaeRaMask; visible: true"
+            event-set__maskOff="_event: mouseleave; _target: #jaeRaMask; visible: false"
+            event-set__waveActive="_event: click; _target: #jaeRaLight; animation__wave.to: 4.5; animation__wave.loop: 0"
+            event-set__magicPulseActive="_event: click; _target: #jaeRaMagic; animation__magicPulse.to: 0.6; animation__magicPulse.loop: 0"
+            event-set__magicSpinActive="_event: click; _target: #jaeRaMagic; animation__magicSpin.dur: 2000"
+            event-set__anomalyPortalActive="_event: click; _target: #anomalyPortal; animation__portalTranslate.from: 1.8 -0.7 -5;  animation__portalTranslate.to: 1.8 1.5 -5"
+            event-set__asePortalActive="_event: click; _target: #asePortal; animation__portalTranslate.from: -1.8 -0.7 -5;  animation__portalTranslate.to: -1.8 1.5 -5"
+            event-set__resetActive="_event: click; _target: #resetMagic; animation__resetTranslate.from: 0 -0.7 -2.5;  animation__resetTranslate.to: 0 0.5 -2.5">
+          </a-plane>
           <a-plane
             id="jaeRaMask" 
             position="-0.046 0.22515 0.107" 
@@ -177,8 +182,8 @@
           id="jaeRaLight"
           type="point" 
           position="0.48385 2.23 -3.52736" 
-          light="color: #f0eee4; distance: 4; intensity: 2"
-          animation__wave="property:distance; dir:alternate; dur:2000; easing:easeInSine; loop:true; from:2.5; to:3">
+          light="color: #f0eee4; distance: 4; intensity: 3"
+          animation__wave="property:distance; dir:alternate; dur:2000; easing:easeInSine; loop:true; from:4; to:2">
         </a-light>
       </a-entity>
 
@@ -192,7 +197,36 @@
         animation__wormhole="property:rotation; from: 0 0 0; to: 0 360 0; dur 2000; startEvents:fusing"
         animation__reset="property:rotation; to: 0 0 0; dur 100; startEvents:mouseleave"
         link="backgroundColor: #b324c6; href: https://jesgrewsoul.itch.io/anomaly-zine-by-jaera; on: animationcomplete__wormhole"
-        animation__portalTranslate="property:position; from 1.8 -0.7 -5; to: 1.8 -0.7 -5; dur: 3000">  
+        animation__portalTranslate="property:position; from 1.8 -0.7 -5; to: 1.8 -0.7 -5; dur: 1000">  
+      </a-entity>
+
+      <a-entity 
+        id="asePortal"
+        class="clickable" 
+        geometry="" 
+        position="-1.8 -0.7 -5" 
+        scale="1 1 1"
+        material="blending:additive; color: #1c22ce"
+        animation__wormhole="property:rotation; from: 0 0 0; to: 0 360 0; dur 2000; startEvents:fusing"
+        animation__reset="property:rotation; to: 0 0 0; dur 100; startEvents:mouseleave"
+        link="backgroundColor: #b324c6; href: https://jesgrewsoul.itch.io/ase-zine-by-jaera; on: animationcomplete__wormhole"
+        animation__portalTranslate="property:position; from: -1.8 -0.7 -5; to: -1.8 -0.7 -5; dur: 1000">  
+      </a-entity>
+
+      <a-entity
+        id="resetMagic"
+        class="clickable"
+        geometry=""
+        position="0 0.5 -2.5"
+        scale="0.5 0.5 0.5"
+        material="blending:additive; color: #cbce1c"
+        animation__resetTranslate="property:position; from: 0 -0.7 -2.5; to: 0 -0.7 -2.5; dur: 2000"
+        event-set__waveInactive="_event: click; _target: #jaeRaLight; animation__wave.to: 3.5; animation__wave.loop: true"
+        event-set__magicPulseInactive="_event: click; _target: #jaeRaMagic; animation__magicPulse.to: 0.5; animation__magicPulse.loop: true"
+        event-set__magicSpinInactive="_event: click; _target: #jaeRaMagic; animation__magicSpin.dur: 6000"
+        event-set__anomalyPortalInactive="_event: click; _target: #anomalyPortal; animation__portalTranslate.from: 1.8 1.5 -5;  animation__portalTranslate.to: 1.8 -0.7 -5"
+        event-set__asePortalInactive="_event: click; _target: #asePortal; animation__portalTranslate.from: -1.8 1.5 -5;  animation__portalTranslate.to: -1.8 -0.7 -5"
+        event-set__resetInactive="_event: click; _target: #resetMagic; animation__resetTranslate.from: 0 0.5 -2.5;  animation__resetTranslate.to: 0 -0.7 -2.5">
       </a-entity>
 
       <a-entity 
