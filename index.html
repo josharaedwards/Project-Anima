@@ -241,7 +241,7 @@
         geometry=""
         position="0 0.5 -2.5"
         scale="0.5 0.5 0.5"
-        material="blending:additive; color: #cbce1c"
+        material="blending: additive; color: #ffffff; src: https://raw.githubusercontent.com/josharaedwards/Project-Anima/606452d584463682f7b50325b5ad2a5a6c622b36/WebDev/Images/dispelText.png"
         animation__resetTranslate="property:position; from: 0 -0.7 -2.5; to: 0 -0.7 -2.5; dur: 2000"
         event-set__waveInactive="_event: click; _target: #jaeRaLight; animation__wave.to: 3.5; animation__wave.loop: true"
         event-set__magicPulseInactive="_event: click; _target: #jaeRaMagic; animation__magicPulse.to: 0.5; animation__magicPulse.loop: true"
@@ -469,6 +469,23 @@
           </a-sphere>
         </a-plane>
       </a-entity>
+
+      <a-plane
+        id="bigMan"
+        class="clickable"
+        position="14.96028 5.98453 -14.47165"
+        rotation="0 -75.2706114619265 0"
+        scale="3.8 5 1"
+        material="blending: additive; opacity: 0.9; src: https://raw.githubusercontent.com/josharaedwards/Project-Anima/606452d584463682f7b50325b5ad2a5a6c622b36/WebDev/Images/mask4.png; shader: flat"
+        animation__rotate="property:rotation; from: 0 -75.2706114619265 0; to: 8.770837927862642 -78.1199305771121 -35.93648586840037; dur:4500; easing:easeInElastic; loop:true; dir:alternate"
+        animation__position="property:position; from: 14.96028 5.98453 -14.47165; to: 14.96028 6.75723 -10.73956; dur:4000; loop:true; dir:alternate">
+        <a-entity
+          geometry="primitive: sphere"
+          scale="0.02821 0.02821 0.02821"
+          position="0.12234 0.07516 0"
+          material="emissive: #e7ca0d; emissiveIntensity: 2.5">
+        </a-entity>
+      </a-plane>
 
       <a-entity
         id="miniSpirits"
