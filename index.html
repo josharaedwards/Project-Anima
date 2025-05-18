@@ -157,8 +157,10 @@
             event-set__waveActive="_event: click; _target: #jaeRaLight; animation__wave.to: 4.5; animation__wave.loop: 0"
             event-set__magicPulseActive="_event: click; _target: #jaeRaMagic; animation__magicPulse.to: 0.6; animation__magicPulse.loop: 0"
             event-set__magicSpinActive="_event: click; _target: #jaeRaMagic; animation__magicSpin.dur: 2000"
-            event-set__anomalyPortalActive="_event: click; _target: #anomalyPortal; animation__portalTranslate.from: 1.8 -0.7 -5;  animation__portalTranslate.to: 1.8 1.5 -5"
-            event-set__asePortalActive="_event: click; _target: #asePortal; animation__portalTranslate.from: -1.8 -0.7 -5;  animation__portalTranslate.to: -1.8 1.5 -5"
+            event-set__anomalyPortalActive="_event: click; _target: #anomalyPortal; animation__portalTranslate.from: 1.8 -0.7 -4.2;  animation__portalTranslate.to: 1.8 1.15 -4.2"
+            event-set__rightHandActive="_event: click; _target: #rightMudHand; animation__handTranslate.from: 1.8 -1 -4.2; animation__handTranslate.to: 1.8 0.5 -4.2"
+            event-set__asePortalActive="_event: click; _target: #asePortal; animation__portalTranslate.from: -1.8 -0.7 -4.2;  animation__portalTranslate.to: -1.8 1.15 -4.2"
+            event-set__leftHandActive="_event: click; _target: #leftMudHand; animation__handTranslate.from: -1.8 -1 -4.2; animation__handTranslate.to: -1.8 0.5 -4.2"
             event-set__resetActive="_event: click; _target: #resetMagic; animation__resetTranslate.from: 0 -0.7 -2.5;  animation__resetTranslate.to: 0 0.5 -2.5">
           </a-plane>
           <a-plane
@@ -191,26 +193,46 @@
         id="anomalyPortal"
         class="clickable" 
         geometry="" 
-        position="1.8 -0.7 -5" 
-        scale="1 1.4 0.2"
+        position="1.8 -0.7 -4.2" 
+        scale="0.55 0.77 0.11"
         material="shader: flat; color: #ffffff; src: https://raw.githubusercontent.com/josharaedwards/Project-Anima/aa7f63717e720f51c05f4140b1923f75edc73c7f/WebDev/Images/anomalyCover.png"
         animation__wormhole="property:rotation; from: 0 0 0; to: 0 360 0; dur 2000; startEvents:fusing"
         animation__reset="property:rotation; to: 0 0 0; dur 100; startEvents:mouseleave"
         link="backgroundColor: #b324c6; href: https://jesgrewsoul.itch.io/anomaly-zine-by-jaera; on: animationcomplete__wormhole"
-        animation__portalTranslate="property:position; from 1.8 -0.7 -5; to: 1.8 -0.7 -5; dur: 1000">  
+        animation__portalTranslate="property:position; from: 1.8 -0.7 -4.2; to: 1.8 -0.7 -4.2; dur: 1000">  
+      </a-entity>
+
+      <a-entity
+        id="rightMudHand"
+        geometry="plane"
+        position="1.8 -1 -4.2"
+        scale="1 1.99472 0.01"
+        material="opacity: 0.9; src: https://raw.githubusercontent.com/josharaedwards/Project-Anima/da65f1bb6c864634fb33765a1c65cd3022228e32/WebDev/Images/mudHandGreen.png"
+        animation__handGlow="property:material.emissive; from:#000000; to:#6b0000; dur: 3000; loop:true; dir:alternate"
+        animation__handTranslate="property:position; from: 1.8 -1 -4.2; to: 1.8 -1 -4.2; dur: 1000">
       </a-entity>
 
       <a-entity 
         id="asePortal"
         class="clickable" 
         geometry="" 
-        position="-1.8 -0.7 -5" 
-        scale="1 1.4 0.2"
+        position="-1.8 -0.7 -4.2" 
+        scale="0.55 0.77 0.11"
         material="shader: flat; color: #ffffff; src: https://raw.githubusercontent.com/josharaedwards/Project-Anima/aa7f63717e720f51c05f4140b1923f75edc73c7f/WebDev/Images/aseCover.png"
         animation__wormhole="property:rotation; from: 0 0 0; to: 0 360 0; dur 2000; startEvents:fusing"
         animation__reset="property:rotation; to: 0 0 0; dur 100; startEvents:mouseleave"
         link="backgroundColor: #b324c6; href: https://jesgrewsoul.itch.io/ase-zine-by-jaera; on: animationcomplete__wormhole"
-        animation__portalTranslate="property:position; from: -1.8 -0.7 -5; to: -1.8 -0.7 -5; dur: 1000">  
+        animation__portalTranslate="property:position; from: -1.8 -0.7 -4.2; to: -1.8 -0.7 -4.2; dur: 1000">  
+      </a-entity>
+
+      <a-entity
+        id="leftMudHand"
+        geometry="plane"
+        position="-1.8 -1 -4.2"
+        scale="1 1.99472 0.01"
+        material="opacity: 0.9; src: https://raw.githubusercontent.com/josharaedwards/Project-Anima/da65f1bb6c864634fb33765a1c65cd3022228e32/WebDev/Images/mudHandYellow.png"
+        animation__handGlow="property:material.emissive; from:#000000; to:#6b0000; dur: 3000; loop:true; dir:alternate"
+        animation__handTranslate="property:position; from: -1.8 -1 -4.2; to: -1.8 -1 -4.2; dur: 1000">
       </a-entity>
 
       <a-entity
@@ -224,8 +246,10 @@
         event-set__waveInactive="_event: click; _target: #jaeRaLight; animation__wave.to: 3.5; animation__wave.loop: true"
         event-set__magicPulseInactive="_event: click; _target: #jaeRaMagic; animation__magicPulse.to: 0.5; animation__magicPulse.loop: true"
         event-set__magicSpinInactive="_event: click; _target: #jaeRaMagic; animation__magicSpin.dur: 6000"
-        event-set__anomalyPortalInactive="_event: click; _target: #anomalyPortal; animation__portalTranslate.from: 1.8 1.5 -5;  animation__portalTranslate.to: 1.8 -0.7 -5"
-        event-set__asePortalInactive="_event: click; _target: #asePortal; animation__portalTranslate.from: -1.8 1.5 -5;  animation__portalTranslate.to: -1.8 -0.7 -5"
+        event-set__anomalyPortalInactive="_event: click; _target: #anomalyPortal; animation__portalTranslate.from: 1.8 1.15 -4.2;  animation__portalTranslate.to: 1.8 -0.7 -4.2"
+        event-set__rightHandInactive="_event: click; _target: #rightMudHand; animation__handTranslate.from: 1.8 0.5 -4.2; animation__handTranslate.to: 1.8 -1 -4.2"
+        event-set__asePortalInactive="_event: click; _target: #asePortal; animation__portalTranslate.from: -1.8 1.15 -4.2;  animation__portalTranslate.to: -1.8 -0.7 -4.2"
+        event-set__leftHandInactive="_event: click; _target: #leftMudHand; animation__handTranslate.from: -1.8 0.5 -4.2; animation__handTranslate.to: -1.8 -1 -4.2"
         event-set__resetInactive="_event: click; _target: #resetMagic; animation__resetTranslate.from: 0 0.5 -2.5;  animation__resetTranslate.to: 0 -0.7 -2.5">
       </a-entity>
 
