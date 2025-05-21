@@ -5,6 +5,37 @@
     <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
   </head>
   <body>
+    <script>
+      AFRAME.registerComponent("mc", {
+        play:function() {
+          let controlButton = this.el;
+          controlButton.addEventListener('click', function (ev) {
+            let method = ev.srcElement.id;
+
+            console.log(method);
+
+            let boombox = document.querySelector('#boombox');
+            let volume = boombox.getAttribute('sound__music');
+
+            if(method == "boombox") {
+              console.log(volume);
+
+              if(volume > 0)
+              {
+                console.log("turn off music");
+                boombox.components.sound__music.stopSound();
+              }
+              if(volume <= 0)
+              {
+                console.log("turn on music")
+                boombox.components.sound__music.playSound();
+              }
+            }
+          });
+        },
+      });
+    </script>
+
     <a-scene xr-mode-ui="enabled:false"
               fog="type: linear; color: #0a0a43; far: 45; near: 0"
               loading-screen="dotsColor: red; backgroundColor: black">
@@ -13,6 +44,11 @@
         <a-asset-item
           id="car"
           src="https://raw.githubusercontent.com/josharaedwards/Project-Anima/b8c4458c12033884799d26aaa85dd0b1784e5a14/WebDev/Models/car.glb">
+        </a-asset-item>
+
+        <a-asset-item
+          id="boomboxAsset"
+          src="https://raw.githubusercontent.com/josharaedwards/Project-Anima/7e9afd5da1212bcb24dfaf17ce25148beb013141/WebDev/Models/Boombox.glb">
         </a-asset-item>
 
         <a-asset-item
@@ -118,7 +154,6 @@
         gltf-model="#car"
         position="-3.85692 0 -12"
         rotation="0 83 0"
-        sound__music="autoplay: true; src: https://raw.githubusercontent.com/josharaedwards/Project-Anima/f5ee29ff0f887f4bef8d70569d251f41cafb6f19/WebDev/SFX/Song_DuppyBusta.wav; distanceModel: linear; volume: 0.1; loop: true"
         animation__hover="property:position; dir:alternate; dur:2400; loop:1; easing:easeInSine; from:-3.85692 0 -12; to:-3.85692 0.9 -12; startEvents: click"
         animation__tilt="property:rotation; dir:alternate; dur:1500; delay:600; loop:1; easing:easeInOutQuad; from:0 83 0; to:7 83 -5; startEvents: click">
         <a-entity 
@@ -145,6 +180,32 @@
           position="-1.69529 0.56764 0.06821" 
           scale="0.26649 0.307 1.21612"
           material="emissive: #27e619; emissiveIntensity:2; wireframe: false; wireframeLinewidth: 5">
+        </a-entity>
+      </a-entity>
+
+      <a-entity
+        id="boombox"
+        class="clickable"
+        mc
+        gltf-model="#boomboxAsset"
+        position="6.1737 0.50807 -7.40756" 
+        rotation="0 -61.3569043649696 0" 
+        scale="0.55585 0.55585 0.55585"
+        animation__bounce="property: scale; from: 0.556 0.556 0.556; to: 0.631 0.431 0.556; loop: true; dir: alternate; dur: 200"
+        sound__music="autoplay: true; src: https://raw.githubusercontent.com/josharaedwards/Project-Anima/f5ee29ff0f887f4bef8d70569d251f41cafb6f19/WebDev/SFX/Song_DuppyBusta.wav; distanceModel: linear; volume: 0.1; loop: true">
+        <a-entity 
+          geometry="primitive: circle" 
+          material="color: #ffffff; emissive: #cee944" 
+          position="-0.47549 0.25861 0.29708" 
+          scale="0.23258 0.23258 0.23258" 
+          light="distance: 0.26; intensity: 1; type: point">
+        </a-entity>
+        <a-entity 
+          geometry="primitive: circle" 
+          material="color: #ffffff; emissive: #cee944" 
+          position="0.47549 0.25861 0.29708" 
+          scale="0.23258 0.23258 0.23258" 
+          light="distance: 0.26; intensity: 1; type: point">
         </a-entity>
       </a-entity>
 
