@@ -553,7 +553,7 @@
         animation__position="property:position; from: 14.96028 5.98453 -14.47165; to: 14.96028 6.75723 -10.73956; dur:6000; loop:true; dir:alternate"
         animation__rotateWatch="property:rotation; to: 8.770837927862642 -78.1199305771121 -35.93648586840037; dur:2000; startEvents:click"
         animation__positionWatch="property:position; to: 14.96028 6.75723 -10.73956; dur:2000; startEvents:click"
-        event-set__watchIris="_event:click; _target:#bigManIris; animation__watchActive.to: 0.6 0.6 0.6; animation__watchActive.dur:800; animation__watchActive.delay:2000"
+        event-set__watchIris="_event:click; _target:#bigManIris; animation__watchActive.to: 0.9 0.9 0.6; animation__watchActive.dur:800; animation__watchActive.delay:2000"
         event-set__watchEye="_event:click; _target:#bigManEye; animation__lookAround.to: 0 40 20; animation__lookAround.dur:2000; animation__lookAround.loop: false"
         event-set__watchLight="_event:click; _target:#bigManLight; animation__watchActive.to: 50; animation__watchActive.dur: 800; animation__watchActive.delay:2000"
         event-set__revealDoor="_event:click; _target:#hiddenDoor; animation__reveal.to: 1; animation__reveal.dur: 800; animation__reveal.delay:2000"
@@ -561,7 +561,7 @@
         <a-entity
           id="bigManEye"
           geometry="primitive: sphere"
-          scale="0.02821 0.02821 0.02821"
+          scale="0.03 0.03 0.03"
           position="0.12234 0.07516 0"
           material="emissive: #e7ca0d; emissiveIntensity: 2.5"
           animation__lookAround="property:rotation; from: 0 0 0; to: 0 33 0; dur:1000; loop: true; dir:alternate; easing:easeInOutElastic">
@@ -573,10 +573,10 @@
           <a-entity
             id="bigManIris"
             geometry="primitive: circle"
-            scale="0.5 0.5 1"
+            scale="0.7 0.7 1"
             position="-0.30251 0.00396 1.10125"
             material="emissive: #ff9500; color: #ff0000"
-            animation__watchActive="property:scale; from: 0.5 0.5 1; to: 0.5 0.5 1; dur: 3000">
+            animation__watchActive="property:scale; from: 0.7 0.7 1; to: 0.7 0.7 1; dur: 3000">
             <a-entity
               id="bigManLight"
               rotation="0 180 0"
